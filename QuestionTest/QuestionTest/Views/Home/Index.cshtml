@@ -1,0 +1,32 @@
+﻿@model QuestionTest.Models.Answer
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@{ 
+    Layout = null;
+}
+
+@Styles.Render("~/Content/css")
+
+
+<form>
+    <div>
+        <p>Укажите ваш пол</p>
+        @Html.RadioButtonFor(m => m.Sex, "Male", new {@class ="gender"}) <span>Male</span> <br />
+        @Html.RadioButtonFor(m => m.Sex, "Female", new { @class = "gender" }) <span>Female</span>
+        <p id="genderValidMes" class="danger"></p>
+
+    </div>
+    <div>
+        <p>Марка вашего телефона</p>
+        @Html.EnumDropDownListFor(m => m.PhoneBrand, new { id ="phoneBrand" })
+        <p id="brandValidMes" class="danger"></p>
+    </div>
+
+    <input type="submit" value="Ответить" class="btn btn-default" id="SubmitBtn" />
+</form>
+
+
+@Scripts.Render("~/bundles/jquery")
+<script src="~/Scripts/main.js"></script>
